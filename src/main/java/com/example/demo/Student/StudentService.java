@@ -1,5 +1,6 @@
 package com.example.demo.Student;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -9,15 +10,14 @@ import java.util.List;
 @Service
 public class StudentService {
 
-      public List<Student> getStudents(){
-          return List.of(
-                  new Student(1L,
-                          "Sebastian",
-                          20,
-                          LocalDate.of(2003, Month.JANUARY,10),
-                          "srsebas101@gmail.com"
-                  )
-          );
-      }
+    private final StudentRepository studentRepository;
+    @Autowired
+    public StudentService(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
+
+    }
+    public List<Student> getStudents(){
+        return studentRepository.findAll();
+    }
 
 }

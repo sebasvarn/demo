@@ -22,7 +22,7 @@ public class Student {
     private LocalDate dov;
     private String email;
 
-    public Student(Long id, String name, Integer age, LocalDate dov, String email) {
+    public Student(Long id, String name,Integer age, LocalDate dov, String email) {
         this.id = id;
         this.name = name;
         this.age = age;
